@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            max-width: 400px;
+            background: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 18px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #555;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h2>Product Form</h2>
+<form th:action="@{/products}" th:object="${product}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" required />
+
+    <label for="price">Price</label>
+    <input type="number" th:field="*{price}" id="price" step="0.01" required />
+
+    <label for="quantity">Quantity</label>
+    <input type="number" th:field="*{quantity}" id="quantity" required />
+
+    <label for="status">Status</label>
+    <input type="text" th:field="*{status}" id="status" required />
+
+    <button type="submit">Save Product</button>
+</form>
+
+<a th:href="@{/products}" class="back-link">← Back to Product List</a>
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head><title>Product Form</title></head>-->
+<!--<body>-->
+<!--<h2>Product Form</h2>-->
+<!--<form th:action="@{/products}" th:object="${product}" method="post">-->
+<!--    <input type="hidden" th:field="*{id}" />-->
+<!--    Name: <input th:field="*{name}" /><br />-->
+<!--    Price: <input th:field="*{price}" /><br />-->
+<!--    Quantity: <input th:field="*{quantity}" /><br />-->
+<!--    Status: <input th:field="*{status}" /><br />-->
+<!--    <button type="submit">Save</button>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
